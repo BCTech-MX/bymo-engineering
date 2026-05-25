@@ -917,6 +917,12 @@
         <input type="hidden" name="_subject" value="New inquiry — Bymo Engineering">
         <input type="text" name="_gotcha" style="display:none">
         <button type="submit" class="form-submit">Send message →</button>
+        <div id="form-success" style="display:none; margin-top:1rem; padding:1rem 1.25rem; border:1px solid #059669; color:#34d399; font-family:'DM Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;">
+          ✓ Message sent — we'll be in touch within 24 hours.
+        </div>
+        <div id="form-error" style="display:none; margin-top:1rem; padding:1rem 1.25rem; border:1px solid #c8522a; color:#e8896a; font-family:'DM Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;">
+          Something went wrong. Please try again or reach out directly on LinkedIn.
+        </div>
       </form>
     </div>
   </div>
@@ -928,5 +934,35 @@
   <span>Mexico City · Remote-first · Americas & Europe</span>
 </footer>
 
+<script>
+  document.querySelector('.contact-form form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.form-submit');
+    const success = document.getElementById('form-success');
+    const error = document.getElementById('form-error');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        btn.style.display = 'none';
+        success.style.display = 'block';
+        error.style.display = 'none';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      btn.textContent = 'Send message →';
+      btn.disabled = false;
+      error.style.display = 'block';
+    }
+  });
+</script>
 </body>
 </html>
