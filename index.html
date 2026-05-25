@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bymo Engineering — FAANG-grade engineering for ambitious teams</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0c0f0a;
+    --white: #f7faf8;
+    --cream: #eef4f0;
+    --accent: #059669;
+    --accent-light: #34d399;
+    --muted: #6b7a6a;
+    --border: #c8d5c6;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-cta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.65; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+  }
+
+  .hero-left {
+    padding: 6rem 3rem 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.75rem;
+    color: var(--black);
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 420px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--black);
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.85rem 1.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--black);
+    text-decoration: none;
+    padding: 0.85rem 1.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--black); transform: translateY(-1px); }
+
+  .hero-right {
+    padding: 6rem 3rem 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--cream);
+    animation: fadeUp 0.8s ease 0.4s both;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 3rem;
+  }
+
+  .stat-item {
+    padding: 1.75rem;
+    background: var(--white);
+  }
+
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    line-height: 1;
+    color: var(--black);
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .credential {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .credential-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* SECTION GENERIC */
+  section {
+    padding: 6rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 80px;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    transition: background 0.2s;
+  }
+  .service-card:hover { background: var(--black); color: var(--white); }
+  .service-card:hover .service-icon { color: var(--accent-light); }
+  .service-card:hover .service-desc { color: #aaa; }
+
+  .service-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--accent);
+    transition: color 0.2s;
+  }
+
+  .service-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    transition: color 0.2s;
+  }
+
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+    transition: color 0.2s;
+  }
+
+  /* HOW WE WORK */
+  .process-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 3rem;
+    max-width: 700px;
+  }
+
+  .process-item {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .process-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 500;
+    padding-top: 0.2rem;
+  }
+
+  .process-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .process-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* TEAM */
+  .team-intro {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .team-expertise {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 3rem;
+  }
+
+  .expertise-item {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+  }
+
+  .expertise-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .expertise-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* TIMEZONE */
+  .tz-section {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .tz-section .section-label { color: var(--accent-light); }
+  .tz-section .section-label::after { background: #333; }
+  .tz-section h2 { color: var(--white); }
+
+  .tz-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 3rem;
+  }
+
+  .tz-card {
+    padding: 2.5rem 2rem;
+    border: 1px solid #1e1e1e;
+  }
+
+  .tz-region {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 1rem;
+  }
+
+  .tz-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+
+  .tz-offset {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 1.25rem;
+  }
+
+  .tz-desc {
+    font-size: 0.88rem;
+    color: #888;
+    line-height: 1.7;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-text p strong {
+    color: var(--black);
+    font-weight: 600;
+  }
+
+  .about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sidebar-item {
+    background: var(--cream);
+    padding: 1.5rem;
+  }
+
+  .sidebar-item-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .sidebar-item-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--black);
+    color: var(--white);
+    border-bottom: none;
+  }
+
+  .contact-section .section-label { color: var(--accent-light); }
+  .contact-section .section-label::after { background: #333; }
+  .contact-section h2 { color: var(--white); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  .contact-intro {
+    font-size: 1rem;
+    color: #888;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 0.92rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid #222;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent); background: #111; }
+
+  .contact-link-icon {
+    font-size: 1.1rem;
+    width: 1.5rem;
+    text-align: center;
+  }
+
+  .contact-link-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #555;
+    margin-left: auto;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background: #111;
+    border: 1px solid #222;
+    color: var(--white);
+    padding: 0.85rem 1rem;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.92rem;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--accent); }
+
+  .form-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--black);
+    border-top: 1px solid #1a1a1a;
+  }
+
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: #444;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 5rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--border); }
+    .hero-right { padding: 3rem 1.5rem; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    section { padding: 4rem 1.5rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .team-expertise { grid-template-columns: 1fr; }
+    .tz-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Bymo<span>.</span>Engineering</div>
+  <div style="display:flex; align-items:center; gap:1.5rem;">
+    <div style="display:flex; gap:0.1rem; font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:0.06em;">
+      <a href="/index.html" style="color:var(--accent); text-decoration:none; padding:0.3rem 0.5rem; border-bottom:1px solid var(--accent);">EN</a>
+      <a href="/es/index.html" style="color:var(--muted); text-decoration:none; padding:0.3rem 0.5rem;">ES</a>
+    </div>
+    <a href="#contact" class="nav-cta">Start a conversation →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="border-bottom: 1px solid var(--border); padding: 0;">
+  <div class="hero-left">
+    <div class="hero-tag">Backend · Infra · Compiler Systems · Streaming</div>
+    <h1>Engineering at <em>FAANG scale</em>, for teams that move fast.</h1>
+    <p class="hero-sub">A boutique engineering firm built by veterans of Meta, Google, and Amazon. We take on focused, high-impact engagements — backend systems, infrastructure, and product-critical challenges that require real seniority.</p>
+    <div class="hero-actions">
+      <a href="https://cal.com/bymo.eng/discovery-call" class="btn-primary">Work with us →</a>
+      <a href="#services" class="btn-secondary">What we do</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-number">FAANG</div>
+        <div class="stat-label">Background across the team</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10⁸</div>
+        <div class="stat-label">Users on systems we've built</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years in production systems</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2 TZ</div>
+        <div class="stat-label">Americas · Europe coverage</div>
+      </div>
+    </div>
+    <div class="hero-credentials">
+      <div class="credential">
+        <div class="credential-dot"></div>
+        <span>Accepting new clients — Q3 2026</span>
+      </div>
+      <div class="credential">
+        <div class="credential-dot"></div>
+        <span>Fluent English & Spanish</span>
+      </div>
+      <div class="credential">
+        <div class="credential-dot"></div>
+        <span>Remote-first · Overlap with US & European timezones</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">What we do</div>
+  <h2>Senior engineering,<br>without the full-time overhead.</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <div class="service-title">Ads & Monetization Infrastructure</div>
+      <div class="service-desc">Auction logic, event pipelines, bidding systems, attribution. Built at Meta scale — applied to your product's monetization layer.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏗</div>
+      <div class="service-title">Backend Architecture</div>
+      <div class="service-desc">System design, API architecture, database modeling, scalability reviews. From greenfield to untangling legacy decisions that are slowing you down.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <div class="service-title">Compiler & Toolchain Infrastructure</div>
+      <div class="service-desc">Build systems, compiler toolchains, developer infrastructure. We've operated at the core of FAANG-scale compiler infrastructure — we know what production-grade tooling looks like.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📡</div>
+      <div class="service-title">Streaming & Video Infrastructure</div>
+      <div class="service-desc">High-availability media delivery, playback systems, content pipelines. Engineering background from FAANG-scale streaming infrastructure.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <div class="service-title">AI / LLM Integration</div>
+      <div class="service-desc">Connecting LLM capabilities to production backend systems. Pipelines, evals, latency optimization, and cost management at scale.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <div class="service-title">Technical Due Diligence</div>
+      <div class="service-desc">Architecture audits, codebase reviews, team assessments. For investors and acquirers who need an honest picture before they commit.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section style="background: var(--cream);">
+  <div class="section-label">How we work</div>
+  <h2>Focused, async-friendly,<br>and outcome-driven.</h2>
+  <div class="process-list">
+    <div class="process-item">
+      <div class="process-num">01</div>
+      <div>
+        <div class="process-title">Discovery call (30 min)</div>
+        <div class="process-desc">We talk through your technical challenge, current state, and what success looks like. No pitch — just a real conversation about your problem.</div>
+      </div>
+    </div>
+    <div class="process-item">
+      <div class="process-num">02</div>
+      <div>
+        <div class="process-title">Scoped proposal</div>
+        <div class="process-desc">We send a clear statement of work — deliverables, timeline, and a flat fee or monthly retainer. No hourly surprises, no scope creep.</div>
+      </div>
+    </div>
+    <div class="process-item">
+      <div class="process-num">03</div>
+      <div>
+        <div class="process-title">Async-first execution</div>
+        <div class="process-desc">Weekly updates, Slack/Linear for daily flow. We work independently and flag blockers early. You won't need to hand-hold us.</div>
+      </div>
+    </div>
+    <div class="process-item">
+      <div class="process-num">04</div>
+      <div>
+        <div class="process-title">Clean handoff</div>
+        <div class="process-desc">Documentation, architecture decisions recorded, your team empowered to own what was built. No black boxes, no lock-in.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-label">The team</div>
+  <h2>Small on purpose.<br>Senior by design.</h2>
+  <p class="team-intro">We don't staff projects with juniors supervised by someone impressive. Every engagement is led and executed by FAANG-background engineers with direct, hands-on experience in the relevant domain.</p>
+
+  <div class="team-expertise">
+    <div class="expertise-item">
+      <div class="expertise-tag">Ads Infra · Backend · AI</div>
+      <div class="expertise-desc">Real-time bidding systems, event pipelines, monetization architecture, and LLM integration into production systems.</div>
+    </div>
+    <div class="expertise-item">
+      <div class="expertise-tag">Compiler Systems · Developer Infra</div>
+      <div class="expertise-desc">Build systems, compiler toolchains, language tooling, and developer platform engineering at scale.</div>
+    </div>
+    <div class="expertise-item">
+      <div class="expertise-tag">Streaming · Video · Backend</div>
+      <div class="expertise-desc">High-availability media delivery, content pipelines, and backend architecture for platforms with massive concurrent load.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMEZONE -->
+<section class="tz-section">
+  <div class="section-label">Coverage</div>
+  <h2>Wherever your team is,<br>we overlap.</h2>
+  <div class="tz-grid">
+    <div class="tz-card">
+      <div class="tz-region">Americas</div>
+      <div class="tz-name">PST · CST · EST · BRT</div>
+      <div class="tz-offset">UTC−8 to UTC−3 · Canada, US, Mexico, Colombia, Argentina, Brazil, Chile, Uruguay</div>
+      <div class="tz-desc">Based in Mexico with full overlap across North and South American timezones. Bilingual English/Spanish. We've worked with US and LATAM teams throughout our careers — no friction, no scheduling overhead.</div>
+    </div>
+    <div class="tz-card">
+      <div class="tz-region">Europe</div>
+      <div class="tz-name">GMT · CET</div>
+      <div class="tz-offset">UTC+0 to UTC+2 · UK, Netherlands, Germany, Spain, France</div>
+      <div class="tz-desc">Morning overlap with European clients. We structure async workflows to maintain momentum across the Atlantic — no blockers waiting for standup. Spanish-speaking coverage for the Iberian market.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About Bymo Engineering</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2>Built for scale.<br>Available for yours.</h2>
+      <p>Bymo Engineering is a boutique technical firm founded by engineers who have built and operated systems at FAANG companies — the organizations that set the bar for what production-grade engineering looks like.</p>
+      <p>We work with a <strong>small number of clients at a time</strong> to stay genuinely useful, not spread thin. When you work with us, you get the actual engineers — not a project manager relaying messages.</p>
+      <p>We're based in <strong>Mexico</strong>, operate with full US and European timezone overlap, and have worked with international teams throughout our careers. Location has never been a friction point.</p>
+    </div>
+    <div class="about-sidebar">
+      <div class="sidebar-item">
+        <div class="sidebar-item-label">Backgrounds</div>
+        <div class="sidebar-item-value">FAANG — Ads · Compiler · Streaming</div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-item-label">Engagement types</div>
+        <div class="sidebar-item-value">Retainer · Project · Advisory · Due Diligence</div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-item-label">Availability</div>
+        <div class="sidebar-item-value">Q3 2026 — Limited slots</div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-item-label">Timezone coverage</div>
+        <div class="sidebar-item-value">Americas (PST→BRT) · Europe (GMT→CET)</div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-item-label">Languages</div>
+        <div class="sidebar-item-value">English · Spanish</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-label">Contact</div>
+  <h2>Let's talk about<br>your problem.</h2>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-intro">We respond within 24 hours. If you're working on a backend scaling challenge, need infrastructure expertise, or want a senior technical partner for a critical project — send us a note.</p>
+      <div class="contact-links">
+        <a href="https://linkedin.com/company/bymo-eng" class="contact-link">
+          <span class="contact-link-icon">in</span>
+          linkedin.com/company/bymo-eng
+          <span class="contact-link-label">LinkedIn</span>
+        </a>
+        <a href="https://cal.com/bymo.eng/discovery-call" class="contact-link">
+          <span class="contact-link-icon">📅</span>
+          Book a 30-min discovery call
+          <span class="contact-link-label">Cal.com</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <form action="https://formspree.io/f/xkoeqrjp" method="POST">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input id="name" type="text" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company & role</label>
+          <input id="company" type="text" name="company" placeholder="CTO at Acme Inc.">
+        </div>
+        <div class="form-group">
+          <label for="message">What are you working on?</label>
+          <textarea id="message" name="message" rows="4" placeholder="Brief description of the challenge or project..." required></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="New inquiry — Bymo Engineering">
+        <input type="text" name="_gotcha" style="display:none">
+        <button type="submit" class="form-submit">Send message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Bymo Engineering</span>
+  <span>Mexico City · Remote-first · Americas & Europe</span>
+</footer>
+
+</body>
+</html>
