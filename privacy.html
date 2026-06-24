@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Bymo</title>
+<meta name="description" content="Privacy Policy for Bymo and its applications. How we collect, use, store, and protect your personal data.">
+<link rel="canonical" href="https://bymo.com.mx/privacy.html">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bymo.com.mx/privacy.html">
+<meta property="og:title" content="Privacy Policy — Bymo">
+<meta property="og:description" content="How Bymo collects, uses, stores, and protects your personal data.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="es_MX">
+<meta property="og:site_name" content="Bymo">
+
+<link rel="icon" type="image/svg+xml" href="/bymo-favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Outfit:wght@600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0c0f0a;
+    --white: #f7faf8;
+    --cream: #eef4f0;
+    --accent: #059669;
+    --accent-light: #34d399;
+    --muted: #6b7a6a;
+    --border: #c8d5c6;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 3rem;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .nav-cta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.65; }
+
+  /* HEADER */
+  .doc-header {
+    padding: 9rem 3rem 4rem 3rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--cream);
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+
+  .doc-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .doc-tag::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 1rem;
+  }
+
+  .doc-updated {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  /* CONTENT */
+  .doc-content {
+    max-width: 760px;
+    padding: 5rem 3rem 6rem 3rem;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+
+  .doc-content h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 3rem 0 1rem 0;
+    color: var(--black);
+  }
+
+  .doc-content h2:first-child { margin-top: 0; }
+
+  .doc-content h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 2rem 0 0.75rem 0;
+  }
+
+  .doc-content p {
+    font-size: 1rem;
+    color: #2a2f29;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .doc-content ul {
+    margin: 0 0 1.5rem 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .doc-content li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 1rem;
+    color: #2a2f29;
+    line-height: 1.8;
+    margin-bottom: 0.6rem;
+  }
+
+  .doc-content li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .doc-content a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .doc-content a:hover { border-color: var(--accent); }
+
+  .doc-content strong { color: var(--black); font-weight: 600; }
+
+  .doc-intro {
+    font-size: 1.1rem;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--black);
+    border-top: 1px solid #1a1a1a;
+  }
+
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: #444;
+  }
+
+  footer a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--accent-light);
+    text-decoration: none;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .doc-header { padding: 7rem 1.5rem 3rem; }
+    .doc-content { padding: 3rem 1.5rem 4rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" style="display:flex; align-items:center; text-decoration:none;">
+    <svg width="130" height="36" viewBox="0 0 200 56" xmlns="http://www.w3.org/2000/svg">
+      <defs><style>@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap');</style></defs>
+      <rect x="0" y="4" width="24" height="24" rx="3" fill="#059669"/>
+      <rect x="13" y="24" width="24" height="24" rx="3" fill="#34d399"/>
+      <text x="50" y="38" font-family="Outfit, sans-serif" font-size="28" font-weight="600" fill="#0c0f0a" letter-spacing="-0.5">bymo</text>
+    </svg>
+  </a>
+  <div style="display:flex; align-items:center; gap:1.5rem;">
+    <div style="display:flex; gap:0.1rem; font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:0.06em;">
+      <a href="/privacy.html" style="color:var(--accent); text-decoration:none; padding:0.3rem 0.5rem; border-bottom:1px solid var(--accent);">EN</a>
+      <a href="/es/privacy.html" style="color:var(--muted); text-decoration:none; padding:0.3rem 0.5rem;">ES</a>
+    </div>
+    <a href="/#contact" class="nav-cta">Let's talk →</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="doc-header">
+  <div class="doc-tag">Legal</div>
+  <h1>Privacy Policy</h1>
+  <div class="doc-updated">Last updated: June 23, 2026</div>
+</header>
+
+<!-- CONTENT -->
+<main class="doc-content">
+  <p class="doc-intro">This Privacy Policy describes how <strong>Black Cube Technologies SRL de CV</strong> ("Bymo", "we", "us", or "our") collects, uses, stores, and protects your personal information when you use our website and our applications (collectively, the "Services"), including any application that uses Meta (Facebook/Instagram) Login. By using our Services, you agree to the practices described in this policy.</p>
+
+  <h2>1. Who We Are</h2>
+  <p>Bymo is a brand operated by <strong>Black Cube Technologies SRL de CV</strong>, a boutique software engineering firm based in Mexico City, Mexico, serving clients across the Americas and Europe. For any privacy-related questions, you can reach us at <a href="mailto:contacto@bymo.com.mx">contacto@bymo.com.mx</a>.</p>
+
+  <h2>2. Information We Collect</h2>
+  <p>We only collect the information needed to provide and improve our Services. Depending on how you interact with us, this may include:</p>
+
+  <h3>Information you provide directly</h3>
+  <ul>
+    <li><strong>Contact details</strong> — name, email address, company, and any message you submit through our contact form.</li>
+    <li><strong>Account information</strong> — when you sign in to an application using Meta Login, we may receive your name, email address, profile picture, and Meta user ID, subject to the permissions you grant.</li>
+  </ul>
+
+  <h3>Information collected automatically</h3>
+  <ul>
+    <li><strong>Usage and device data</strong> — IP address, browser type, device type, pages visited, and timestamps, collected to keep the Services secure and reliable.</li>
+    <li><strong>Cookies and similar technologies</strong> — used to maintain sessions and understand basic usage. You can control cookies through your browser settings.</li>
+  </ul>
+
+  <h3>Information from Meta (Facebook / Instagram) Login</h3>
+  <p>If you choose to log in using Meta, we receive only the data you explicitly authorize during the permission flow — typically your public profile and email address. We do not receive your Meta password, and we never post to your account without your consent.</p>
+
+  <h2>3. How We Use Your Information</h2>
+  <p>We use the information we collect to:</p>
+  <ul>
+    <li>Provide, operate, and maintain our Services.</li>
+    <li>Authenticate you and manage your account.</li>
+    <li>Respond to your inquiries and provide support.</li>
+    <li>Improve, personalize, and secure the Services.</li>
+    <li>Comply with legal obligations and prevent fraud or abuse.</li>
+  </ul>
+  <p>We <strong>do not sell</strong> your personal information, and we do not use it for advertising profiling.</p>
+
+  <h2>4. How We Share Your Information</h2>
+  <p>We share personal information only in limited circumstances:</p>
+  <ul>
+    <li><strong>Service providers</strong> — trusted vendors who help us operate the Services (for example, hosting and form-processing providers), bound by confidentiality obligations.</li>
+    <li><strong>Legal requirements</strong> — when required by law, regulation, legal process, or enforceable governmental request.</li>
+    <li><strong>Protection of rights</strong> — to protect the rights, property, or safety of Bymo, our users, or the public.</li>
+  </ul>
+
+  <h2>5. Data Retention</h2>
+  <p>We retain personal information only as long as necessary to fulfill the purposes described in this policy, to comply with legal obligations, resolve disputes, and enforce our agreements. When data is no longer needed, we delete or anonymize it.</p>
+
+  <h2>6. Data Security</h2>
+  <p>We implement reasonable technical and organizational measures — including encryption in transit and access controls — to protect your information against unauthorized access, loss, or misuse. No method of transmission or storage is completely secure, but we work to safeguard your data.</p>
+
+  <h2>7. Your Rights</h2>
+  <p>Depending on your location, you may have the right to access, correct, delete, or restrict the processing of your personal data, and to withdraw consent at any time. To exercise these rights, contact us at <a href="mailto:contacto@bymo.com.mx">contacto@bymo.com.mx</a>.</p>
+
+  <h3>Deleting your data and Meta account disconnection</h3>
+  <p>If you signed in with Meta and would like to disconnect the application or delete the data associated with your account, you can:</p>
+  <ul>
+    <li>Remove the app from your Meta account settings under <strong>Settings &amp; Privacy → Apps and Websites</strong>; or</li>
+    <li>Email us at <a href="mailto:contacto@bymo.com.mx">contacto@bymo.com.mx</a> with the subject "Data Deletion Request", and we will delete your personal data within 30 days.</li>
+  </ul>
+
+  <h2>8. Children's Privacy</h2>
+  <p>Our Services are not directed to children under the age of 13 (or the minimum age required in your jurisdiction). We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us so we can remove it.</p>
+
+  <h2>9. International Data Transfers</h2>
+  <p>Bymo operates from Mexico and serves clients internationally. Your information may be processed in countries other than your own. Where required, we take steps to ensure your data receives an adequate level of protection.</p>
+
+  <h2>10. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page. Material changes will be communicated through the Services where appropriate.</p>
+
+  <h2>11. Contact Us</h2>
+  <p>If you have any questions or concerns about this Privacy Policy or our data practices, contact us at:</p>
+  <ul>
+    <li><strong>Legal entity:</strong> Black Cube Technologies SRL de CV</li>
+    <li><strong>Email:</strong> <a href="mailto:contacto@bymo.com.mx">contacto@bymo.com.mx</a></li>
+    <li><strong>Website:</strong> <a href="https://bymo.com.mx">bymo.com.mx</a></li>
+    <li><strong>Location:</strong> Mexico City, Mexico</li>
+  </ul>
+
+  <p style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--muted);">Bymo is a commercial brand operated by <strong>Black Cube Technologies SRL de CV</strong>, a company incorporated under the laws of Mexico. All references to "Bymo" in this Privacy Policy refer to Black Cube Technologies SRL de CV.</p>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Black Cube Technologies SRL de CV</span>
+  <span><a href="/">← Back to home</a></span>
+</footer>
+
+</body>
+</html>
