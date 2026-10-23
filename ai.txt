@@ -1,0 +1,23 @@
+# Lo mismo que robots.txt les niega a los rastreadores de entrenamiento de IA, con el formato que
+# lee checkllms.com. No es un estándar: el bloqueo que se respeta es el de robots.txt.
+User-Agent: *
+No-Training: yes
+
+User-Agent: meta-externalagent
+User-Agent: FacebookBot
+User-Agent: GPTBot
+User-Agent: ClaudeBot
+User-Agent: anthropic-ai
+User-Agent: Google-Extended
+User-Agent: GoogleOther
+User-Agent: Applebot-Extended
+User-Agent: Amazonbot
+User-Agent: CCBot
+User-Agent: Bytespider
+User-Agent: cohere-ai
+User-Agent: Diffbot
+User-Agent: Omgilibot
+User-Agent: ImagesiftBot
+User-Agent: AI2Bot
+User-Agent: Timpibot
+Disallow: /
