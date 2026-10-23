@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Rastreador con el que Meta entrena sus modelos (términos comerciales, 30 oct 2026)
+User-agent: meta-externalagent
+Disallow: /
+
 Sitemap: https://bymo.com.mx/sitemap.xml
